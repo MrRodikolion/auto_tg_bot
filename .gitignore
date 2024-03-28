@@ -1,5 +1,7 @@
 .idea
 venv
 
+config.py
+
 post_gen/test.jpg
 start.bat

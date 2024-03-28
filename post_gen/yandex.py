@@ -8,7 +8,7 @@ import re
 
 WINDOW_SIZE = '1920,1080'
 chrome_options = Options()
-# chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")
 chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
 
 
@@ -34,4 +34,5 @@ def gen_text(theme):
 
 
 if __name__ == '__main__':
-    print(gen_text('чай'))
+    # print(get_text_y3('чай'))
+    ...
