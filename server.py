@@ -12,9 +12,18 @@ app = Flask(__name__)
 def index():
     return "Сервер стоит"
 
+async def run_server():
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+
+async def run_bot():
+    await main()
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, filename='log.txt')
-    asyncio.run(main())
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(asyncio.gather(
+        run_bot(),
+        # run_server()
+    ))
+    loop.close()
